@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Addon Bedrock Edition</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../logo.png" type="image/png" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-wrapper">
+      <img src="../logo.png" alt="Logo anoolylio" />
+      <div class="logo-text">anoolylio<span> website</span></div>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Daftar Addon Bedrock Edition</h1>
+    <div id="addonList">
+      <p>Memuat data addon...</p>
+    </div>
+    <a href="../index.html" class="link-button"><i class="fas fa-arrow-left"></i> Kembali</a>
+  </div>
+
+  <script>
+    fetch("../data/bedrock_addons.json")
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("addonList");
+        container.innerHTML = ""; // Kosongkan kontainer
+
+        if (data.length === 0) {
+          container.innerHTML = "<p>Belum ada addon yang tersedia.</p>";
+          return;
+        }
+
+        data.forEach(addon => {
+          const addonItem = document.createElement("div");
+          addonItem.classList.add("reveal");
+          addonItem.style.marginBottom = "1.5rem";
+          addonItem.innerHTML = `
+            <h3><i class="fas ${addon.ikon}"></i> ${addon.nama}</h3>
+            <a href="${addon.file}" class="modal-button" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          `;
+          container.appendChild(addonItem);
+        });
+      })
+      .catch(error => {
+        document.getElementById("addonList").innerHTML =
+          "<p>Gagal memuat data. Periksa file JSON atau koneksi Anda.</p>";
+        console.error(error);
+      });
+  </script>
+</body>
+</html>

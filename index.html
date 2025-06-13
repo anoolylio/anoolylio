@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>anoolylio website</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-wrapper">
+      <img src="logo.png" alt="Logo anoolylio" />
+      <div class="logo-text">anoolylio<span> website</span></div>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Menu Unduhan Minecraft</h1>
+    <button class="link-button" onclick="openModal('addonModal')">
+      <i class="fas fa-cubes"></i> Download Addon
+    </button>
+    <button class="link-button" onclick="openModal('textureModal')">
+      <i class="fas fa-paint-roller"></i> Download Textures Pack
+    </button>
+    <button class="link-button" onclick="openModal('mapsModal')">
+      <i class="fas fa-map"></i> Download Maps
+    </button>
+    <button class="link-button" onclick="openModal('clientModal')">
+      <i class="fas fa-desktop"></i> Download Client
+    </button>
+    <a href="minecraft.apk" class="link-button">
+      <i class="fab fa-android"></i> Download Minecraft
+    </a>
+    <a href="https://wa.me/62XXXXXXXXX" class="link-button" target="_blank">
+      <i class="fab fa-whatsapp"></i> Saluran WhatsApp
+    </a>
+  </div>
+
+  <!-- Modal Addon -->
+  <div id="addonModal" class="modal">
+    <div class="modal-content">
+      <h2>Pilih Edisi Minecraft (Addon)</h2>
+      <a href="add-on/bedrock.html" class="modal-button">
+        <i class="fas fa-cube"></i> Bedrock Edition
+      </a>
+      <a href="downloads/addon-java.zip" class="modal-button">
+        <i class="fas fa-cubes"></i> Java Edition
+      </a>
+      <button onclick="closeModal('addonModal')" class="close-button">Batal</button>
+    </div>
+  </div>
+
+  <!-- Modal Texture -->
+  <div id="textureModal" class="modal">
+    <div class="modal-content">
+      <h2>Pilih Edisi Minecraft (Textures Pack)</h2>
+      <a href="downloads/textures-bedrock.zip" class="modal-button">
+        <i class="fas fa-cube"></i> Bedrock Edition
+      </a>
+      <a href="downloads/textures-java.zip" class="modal-button">
+        <i class="fas fa-cubes"></i> Java Edition
+      </a>
+      <button onclick="closeModal('textureModal')" class="close-button">Batal</button>
+    </div>
+  </div>
+
+  <!-- Modal Maps -->
+  <div id="mapsModal" class="modal">
+    <div class="modal-content">
+      <h2>Pilih Edisi Minecraft (Maps)</h2>
+      <a href="downloads/maps-bedrock.zip" class="modal-button">
+        <i class="fas fa-map-marker-alt"></i> Bedrock Edition
+      </a>
+      <a href="downloads/maps-java.zip" class="modal-button">
+        <i class="fas fa-map-marked-alt"></i> Java Edition
+      </a>
+      <button onclick="closeModal('mapsModal')" class="close-button">Batal</button>
+    </div>
+  </div>
+
+  <!-- Modal Client -->
+  <div id="clientModal" class="modal">
+    <div class="modal-content">
+      <h2>Pilih Platform (Client)</h2>
+      <a href="downloads/client-windows.zip" class="modal-button">
+        <i class="fab fa-windows"></i> Windows
+      </a>
+      <a href="downloads/client-android.apk" class="modal-button">
+        <i class="fab fa-android"></i> Android
+      </a>
+      <button onclick="closeModal('clientModal')" class="close-button">Batal</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modals = ["addonModal", "textureModal", "mapsModal", "clientModal"];
+      modals.forEach(id => {
+        const modal = document.getElementById(id);
+        if (event.target === modal) closeModal(id);
+      });
+    };
+  </script>
+</body>
+</html>

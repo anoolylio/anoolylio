@@ -1,0 +1,191 @@
+/* style.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1c0430, #240036);
+  color: white;
+}
+
+/* Transisi & box model */
+* {
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #0e0318;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.logo-wrapper img {
+  height: 40px;
+  margin-right: 10px;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 0px #651fff);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #7f39fb);
+  }
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-text span {
+  font-weight: normal;
+}
+
+/* Container utama */
+.container {
+  max-width: 400px;
+  margin: 3rem auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+/* Tombol utama */
+.link-button,
+.modal-button {
+  background-color: #651fff;
+  color: white;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  transition: all 0.3s ease;
+}
+
+.link-button i,
+.modal-button i {
+  margin-right: 8px;
+}
+
+.link-button:hover,
+.modal-button:hover {
+  background-color: #7f39fb;
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #7f39fb;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1b002b;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  animation: fadeInModal 0.3s ease forwards;
+}
+
+.close-button {
+  margin-top: 1.5rem;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+/* Reveal effect */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animasi */
+@keyframes fadeInModal {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Toast notifikasi */
+#toast {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #651fff;
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+  z-index: 9999;
+}
+
+/* Responsif */
+@media (max-width: 480px) {
+  .logo-wrapper {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .logo-wrapper img {
+    margin: 0;
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}
